@@ -76,6 +76,9 @@ class AtomShellManager:
         result = {}
 
         for subshell in SUBSHELLS_BY_ENERGY[start_energy_index:]:
+            # 'subshell != last_populated_subshell' is optional.
+            # Sometimes d and f subshells are never counted,
+            # for example when drawing Lewis dot diagrams.
             if subshell[1] in ["d", "f"] and subshell != last_populated_subshell:
                 continue
             if subshell in self.subshells:
